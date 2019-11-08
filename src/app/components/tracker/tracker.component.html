@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="header">
+    <span>Movies I watched</span>
+  </div>
+  <div id="list-container">
+    <mat-list>
+      <mat-list-item *ngFor="let movie of movies">
+        <div class="d-flex justify-content-between w-100">
+          <a [routerLink]="'/movie/'+movie.imdbID">{{movie.Title}}</a>
+          <mat-icon aria-hidden="false" aria-label="Add movie" class="remove icon ml-1" (click)="remove(movie)">close</mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

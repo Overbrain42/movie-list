@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="header">
+    <span>Search for movies and add to your list</span>
+  </div>
+  <div id="search-container">
+    <mat-form-field class="wide-search">
+      <input #searchInput type="text" placeholder="Search for Movies" matInput [formControl]="myControl" [matAutocomplete]="auto"
+             (input)="search(searchInput)" (keyup.enter)="search(searchInput, true)">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelect($event)">
+        <mat-option *ngFor="let option of options" [value]="option.Title">
+          {{option.Title}} ({{option.Year}})
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-icon aria-hidden="false" aria-label="Add movie" class="search icon ml-1" (click)="search(searchInput, true)">search</mat-icon>
+  </div>
+  <div id="results-container" class="d-flex justify-content-around flex-wrap">
+    <div *ngFor="let movie of results" class="d-flex flex-column movie-container">
+      <div class="title d-flex align-items-center justify-content-center">
+        <span>{{movie.Title}} ({{movie.Year}})</span>
+        <mat-icon *ngIf="!inList(movie.imdbID)" aria-hidden="false" aria-label="Add movie" class="add icon ml-1" (click)="addMovie(movie)">add</mat-icon>
+        <mat-icon *ngIf="inList(movie.imdbID)" aria-hidden="false" aria-label="Add movie" class="add icon ml-1">check</mat-icon>
+      </div>
+      <img *ngIf="movie.Poster !== 'N/A'" [src]="movie.Poster" class="poster">
+    </div>
+  </div>
+</div>

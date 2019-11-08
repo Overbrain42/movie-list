@@ -1,0 +1,29 @@
+:host {
+  padding: 0 8px;
+  flex-grow: 1;
+}
+
+.header {
+  text-align: center;
+  font-size: 18px;
+  padding: 8px 0;
+}
+
+.wide-search {
+  width: 500px;
+}
+
+.movie-container {
+  width: 300px;
+  height: 500px;
+  padding: 5px;
+
+  .poster {
+    max-width: 300px;
+    max-height: 450px;
+  }
+
+  .title {
+    min-height: 50px;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="wrapper" *ngIf="movie">
+  <div class="header">
+    <span>{{movie.Title}}</span>
+  </div>
+  <div id="details-container" class="d-flex flex-column">
+    <img *ngIf="movie.Poster !== 'N/A'" class="align-self-center" [src]="movie.Poster">
+    <button mat-button (click)="router.navigate(['/search']);" class="align-self-center">Back to searching</button>
+    <table>
+      <tr *ngFor="let detail of displayedDetails">
+        <td class="font-weight-bold d-flex align-self-start">{{detail}}:</td>
+        <td class="pl-2">{{movie[detail]}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
