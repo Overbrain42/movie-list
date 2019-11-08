@@ -1,5 +1,7 @@
 export const omdbapi = 'http://www.omdbapi.com/?apikey=3cc0ade0&type=movie&';
 
+export const imagePlaceholder = './../../assets/images/image-placeholder-vertical.jpg';
+
 export const displayedMovieDetails = [
   'Year',
   'Genre',

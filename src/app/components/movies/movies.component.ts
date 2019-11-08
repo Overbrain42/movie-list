@@ -4,6 +4,7 @@ import { MatAutocompleteTrigger } from '@angular/material';
 import { MoviesService } from '../../services/movies.service';
 import { Movie, Response } from '../../static/interfaces';
 import { RequestsService } from '../../services/requests.service';
+import { imagePlaceholder } from '../../static/app.constants';
 
 @Component({
   selector: 'app-movies',
@@ -47,5 +48,9 @@ export class MoviesComponent {
 
   addMovie(movie) {
     this.moviesService.add(movie);
+  }
+
+  getPoster(movie) {
+    return movie.Poster === 'N/A' ? imagePlaceholder : movie.Poster;
   }
 }

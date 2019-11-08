@@ -3,7 +3,7 @@
     <span>{{movie.Title}}</span>
   </div>
   <div id="details-container" class="d-flex flex-column">
-    <img *ngIf="movie.Poster !== 'N/A'" class="align-self-center" [src]="movie.Poster">
+    <img class="align-self-center poster" [src]="getPoster(movie)">
     <button mat-button (click)="router.navigate(['/search']);" class="align-self-center">Back to searching</button>
     <table>
       <tr *ngFor="let detail of displayedDetails">

@@ -21,7 +21,7 @@
         <mat-icon *ngIf="!inList(movie.imdbID)" aria-hidden="false" aria-label="Add movie" class="add icon ml-1" (click)="addMovie(movie)">add</mat-icon>
         <mat-icon *ngIf="inList(movie.imdbID)" aria-hidden="false" aria-label="Add movie" class="add icon ml-1">check</mat-icon>
       </div>
-      <img *ngIf="movie.Poster !== 'N/A'" [src]="movie.Poster" class="poster">
+      <img [src]="getPoster(movie)" class="poster">
     </div>
   </div>
 </div>

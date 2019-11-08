@@ -3,7 +3,7 @@ import { MoviesService } from '../../services/movies.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestsService } from '../../services/requests.service';
 import { MovieDetails } from '../../static/interfaces';
-import { displayedMovieDetails } from '../../static/app.constants';
+import { displayedMovieDetails, imagePlaceholder } from '../../static/app.constants';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -44,5 +44,9 @@ export class MovieDetailComponent implements OnInit, OnDestroy {
       }
       this.movie = res;
     });
+  }
+
+  getPoster(movie) {
+    return movie.Poster === 'N/A' ? imagePlaceholder : movie.Poster;
   }
 }
